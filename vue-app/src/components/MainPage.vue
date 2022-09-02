@@ -1,0 +1,15 @@
+<template>
+  <div class="mt-16">
+    MainPage
+  </div>
+</template>
+
+<script>
+export default {
+  name: "MainPage"
+}
+</script>
+
+<style scoped>
+
+</style>
