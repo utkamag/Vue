@@ -2,12 +2,12 @@
   <v-container fluid>
     <v-app-bar color="orange">
       <v-spacer/>
-      <v-btn color="yellow" variant="outlined">
-        <router-link to="/" class="text-decoration-none">Главная страница</router-link>
-      </v-btn>
-      <v-btn color="yellow" variant="outlined">
-        <router-link to="/photo" class="text-decoration-none">Фотографии</router-link>
-      </v-btn>
+      <router-link to="/" class="text-decoration-none">
+        <v-btn class="ml-10" color="yellow" variant="flat">Главная страница</v-btn>
+      </router-link>
+      <router-link to="/photo" class="text-decoration-none">
+        <v-btn class="ml-10 mr-4" color="yellow" variant="flat">Фотографии</v-btn>
+      </router-link>
     </v-app-bar>
   </v-container>
 </template>

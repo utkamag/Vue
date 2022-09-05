@@ -2,6 +2,7 @@
   <v-container>
     <Photo
         v-for="photo in photos"
+        v-bind:photo="photo"
     />
   </v-container>
 </template>
