@@ -1,5 +1,15 @@
 <template>
-  <div class="mt-12">{{photo.id + photo.title}}</div>
+  <v-col class="mt-16" cols="4">
+    <v-card>
+      <v-card-title>{{ photo.title }}</v-card-title>
+      <v-card-item>
+        <v-img
+            width="200px"
+            :src="photo.url"
+        />
+      </v-card-item>
+    </v-card>
+  </v-col>
 </template>
 
 <script>

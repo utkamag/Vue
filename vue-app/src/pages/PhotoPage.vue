@@ -1,25 +1,40 @@
 <template>
   <v-container>
-    <Photo
-        v-for="photo in photos"
-        v-bind:photo="photo"
-    />
+    <PhotoForm/>
+    <v-row>
+      <Photo
+          v-for="photo in photos"
+          v-bind:photo="photo"
+      />
+    </v-row>
   </v-container>
 </template>
 
 <script>
 import Photo from "@/components/Photo/Photo";
+import axios from "axios";
+import PhotoForm from "@/components/PhotoForm";
 
 export default {
-  components: {Photo},
+  components: {Photo, PhotoForm},
 
-  data: () => ({
-    photos: [
-      {id: 1, title: "Фото №1"},
-      {id: 2, title: "Фото №2"},
-      {id: 3, title: "Фото №3"}
-    ]
-  }),
+  data() {
+    return {
+      photos: []
+    }
+  },
+  mounted() {
+    this.fetchToDo()
+  },
+
+  methods: {
+    fetchToDo() {
+      axios.get("https://jsonplaceholder.typicode.com/photos")
+          .then(response => this.photos = response.data)
+          .catch(error => console.log(error));
+    }
+  },
+
   name: "PhotoPage"
 }
 </script>
