@@ -5,6 +5,7 @@
       <v-card-item>
         <v-img
             width="200px"
+            height="200px"
             :src="photo.url"
         />
       </v-card-item>

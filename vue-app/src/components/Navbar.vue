@@ -1,6 +1,7 @@
 <template>
-  <v-container fluid>
+  <v-container>
     <v-app-bar color="orange">
+      <h2 class="ml-15">Vue</h2>
       <v-spacer/>
       <router-link to="/" class="text-decoration-none">
         <v-btn class="ml-10" color="yellow" variant="flat">Главная страница</v-btn>

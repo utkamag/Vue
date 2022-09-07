@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <PhotoForm/>
+    <PhotoForm @addPhoto="addPhoto"/>
     <v-row>
       <Photo
           v-for="photo in photos"
@@ -13,7 +13,7 @@
 <script>
 import Photo from "@/components/Photo/Photo";
 import axios from "axios";
-import PhotoForm from "@/components/PhotoForm";
+import PhotoForm from "@/components/Photo/PhotoForm";
 
 export default {
   components: {Photo, PhotoForm},
@@ -29,10 +29,14 @@ export default {
 
   methods: {
     fetchToDo() {
-      axios.get("https://jsonplaceholder.typicode.com/photos")
+      axios.get("https://jsonplaceholder.typicode.com/photos?_limit=10")
           .then(response => this.photos = response.data)
           .catch(error => console.log(error));
-    }
+    },
+    addPhoto(photo) {
+      this.photos.push(photo)
+    },
+
   },
 
   name: "PhotoPage"
