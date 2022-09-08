@@ -5,8 +5,13 @@
       <Photo
           v-for="photo in photos"
           v-bind:photo="photo"
+          @openPhoto="openPhoto"
       />
     </v-row>
+    <PhotoDialog
+        :photo="currentPhoto"
+        :dialog-visible="dialogVisible"
+    />
   </v-container>
 </template>
 
@@ -14,13 +19,16 @@
 import Photo from "@/components/Photo/Photo";
 import axios from "axios";
 import PhotoForm from "@/components/Photo/PhotoForm";
+import PhotoDialog from "@/components/Photo/PhotoDialog";
 
 export default {
-  components: {Photo, PhotoForm},
+  components: {PhotoDialog, Photo, PhotoForm},
 
   data() {
     return {
-      photos: []
+      photos: [],
+      currentPhoto: {},
+      dialogVisible: false
     }
   },
   mounted() {
@@ -35,6 +43,11 @@ export default {
     },
     addPhoto(photo) {
       this.photos.push(photo)
+    },
+
+    openPhoto(photo) {
+      this.currentPhoto = photo
+      this.dialogVisible = true
     },
 
   },

@@ -1,32 +1,32 @@
 <template>
-  <v-col class="mt-16" cols="4">
-    <v-card @click="openPhoto">
+  <v-dialog
+      v-model="dialogVisible"
+  >
+    <v-card width="600px"
+            height="400px">
       <v-card-title>{{ photo.title }}</v-card-title>
-      <v-card-item>
+      <v-card-text>
         <v-img
-            width="200px"
-            height="200px"
             :src="photo.url"
         />
-      </v-card-item>
+      </v-card-text>
     </v-card>
-  </v-col>
+  </v-dialog>
 </template>
 
 <script>
 export default {
+  name: "PhotoDialog",
   props: {
     photo: {
       type: Object,
       required: true
+    },
+    dialogVisible: {
+      type: Boolean,
+      default: false
     }
-  },
-  methods: {
-    openPhoto() {
-      this.$emit("openPhoto", this.photo)
-    }
-  },
-  name: "Photo"
+  }
 }
 </script>
 
