@@ -2,8 +2,8 @@
   <v-dialog
       v-model="dialogVisible"
   >
-    <v-card width="600px"
-            height="400px">
+    <v-card width="700px"
+            height="500px">
       <v-card-title>{{ photo.title }}</v-card-title>
       <v-card-text>
         <v-img
@@ -17,15 +17,23 @@
 <script>
 export default {
   name: "PhotoDialog",
+  data() {
+    return{
+      dialogVisible: false
+    }
+  },
   props: {
     photo: {
       type: Object,
       required: true
     },
-    dialogVisible: {
+    value: {
       type: Boolean,
       default: false
     }
+  },
+  created() {
+    this.dialogVisible = this.value
   }
 }
 </script>

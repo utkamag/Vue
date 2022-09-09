@@ -10,7 +10,7 @@
     </v-row>
     <PhotoDialog
         :photo="currentPhoto"
-        :dialog-visible="dialogVisible"
+        v-model="dialogVisible"
     />
   </v-container>
 </template>
@@ -31,16 +31,15 @@ export default {
       dialogVisible: false
     }
   },
+
   mounted() {
-    this.fetchToDo()
+    this.axios.get("https://jsonplaceholder.typicode.com/photos?_limit=10")
+        .then(response => this.photos = response.data)
+        .catch(error => console.log(error));
   },
 
   methods: {
-    fetchToDo() {
-      axios.get("https://jsonplaceholder.typicode.com/photos?_limit=10")
-          .then(response => this.photos = response.data)
-          .catch(error => console.log(error));
-    },
+
     addPhoto(photo) {
       this.photos.push(photo)
     },
@@ -51,7 +50,6 @@ export default {
     },
 
   },
-
   name: "PhotoPage"
 }
 </script>
