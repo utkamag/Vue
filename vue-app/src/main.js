@@ -5,13 +5,14 @@ import {loadFonts} from './plugins/webfontloader'
 import router from "@/router";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import store from "@/store";
 
 loadFonts()
 
 createApp(App)
-    .use(Vuex)
     .use(VueAxios, axios)
     .use(router)
+    .use(store)
     .use(vuetify)
     .mount('#app')
 

@@ -32,10 +32,10 @@ export default {
     }
   },
 
+  // Запрос перенс в PhotoModule
+
   mounted() {
-    this.axios.get("https://jsonplaceholder.typicode.com/photos?_limit=10")
-        .then(response => this.photos = response.data)
-        .catch(error => console.log(error));
+    this.$store.dispatch("fetchPhotos")
   },
 
   methods: {
