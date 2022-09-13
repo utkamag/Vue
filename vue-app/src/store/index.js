@@ -1,9 +1,9 @@
-import Vuex from 'vuex'
+import {createStore} from 'vuex'
 import PhotoModule from "@/store/PhotoModule";
 
 
-export default new Vuex.Store({
+export default createStore({
     modules: {
-        PhotoModule
+        module1: PhotoModule
     }
 })
