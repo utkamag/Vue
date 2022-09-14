@@ -1,14 +1,9 @@
 <template>
   <v-container>
-    <div>
-      <v-btn @click="$store.commit('setTest', 123)">test</v-btn>
-      <v-btn @click="test = false">test2</v-btn>
-      <div>{{ $store.state.module1.test }}</div>
-    </div>
     <PhotoForm @addPhoto="addPhoto"/>
     <v-row>
       <Photo
-          v-for="photo in $store.state.module1.getAllPhotos"
+          v-for="photo in $store.state.module1.photos"
           v-bind:photo="photo"
           @openPhoto="openPhoto"
       />
