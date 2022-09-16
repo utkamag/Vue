@@ -36,7 +36,7 @@ export default {
   // Запрос перенс в PhotoModule
 
   mounted() {
-
+    this.$store.dispatch("fetchPhotos")
   },
 
   methods: {
