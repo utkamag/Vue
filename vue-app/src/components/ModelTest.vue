@@ -46,7 +46,7 @@ export default {
 .input {
   margin-top: 10px;
   padding: 10px;
-  background: burlywood;
+  background: antiquewhite;
   border-radius: 10px;
 
   &__first {
@@ -57,7 +57,7 @@ export default {
 .textarea {
   margin-top: 10px;
   padding: 10px;
-  background: burlywood;
+  background: antiquewhite;
   border-radius: 10px;
 }
 
